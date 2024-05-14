@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolução de Notebooks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            background-col
+            or: #f0f0f0;
+        }
+
+        form {
+            background-color: #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="datetime-local"],
+        select,
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1f6da0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="processa_devolucao.php" method="post" id="devolucao-form">
+            <h2>Devolução de equipamentos</h2>
+            <input type="text" id="ra" name="ra" placeholder="RA/RG" required>
+            <input type="text" id="numero_serie_notebook" name="numero_serie_notebook" placeholder="Número de Série do Notebook" required>
+            <input type="datetime-local" id="data_devolucao" name="data_devolucao" required>
+            <button type="submit">Devolver Notebook</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

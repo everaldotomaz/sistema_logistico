@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logoPimentel.enc">
+    <title>Jõao Sarmento Pimentel</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #09a9f3;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; /* Ajuste conforme necessário */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .school-info {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .school-info h2 {
+            font-size: 24px;
+        }
+
+        .school-info p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para o menu responsivo */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: left;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+
+            /* Estilo dos contêineres e imagens */
+            .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .image-slider {
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        /* Estilo dos botões */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+           /* Estilo do rodapé */
+           footer {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logoPimentel.enc" alt="Logo da Escola"></a>
+        </div>
+        <nav>
+            <div class="menu-icon">&#9776;</div>
+            <ul>
+                <li><a href="cadastro/cadastro_usuarios.html">Cadastro</a></li>
+                <li><a href="login/login.php">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="school-info">
+            <h2>Bem-vindo à Escola João Sarmento Pimentel</h2>
+            <p>A escola João Sarmento Pimentel disponibiliza ao aluno opções de equipamentos para empréstimo, incluindo notebooks, tablets e outros dispositivos.</p>
+            <p>Para solicitar empréstimos, faça login no sistema ou cadastre-se se você ainda não possui uma conta.</p>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <h2>Produtos</h2>
+        <div class="image-slider">
+            <img src="img/positivo.jpg" alt="Notebook">
+            <img src="img/lenovo.jpg" alt="notebook">
+            <img src="img/tablet.jpg" alt="Tablet">
+
+        </div>
+        <div>
+            <a href="#" class="button" onclick="prevSlide()">Anterior</a>
+            <a href="#" class="button" onclick="nextSlide()">Próximo</a>
+        </div>
+    </div>
+
+    <script>
+        var currentIndex = 0;
+        var slides = document.querySelectorAll('.image-slider img');
+
+        function showSlide(index) {
+            slides.forEach(function(slide) {
+                slide.style.display = 'none';
+            });
+            slides[index].style.display = 'block';
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // Exibindo o primeiro slide ao carregar a página
+        showSlide(currentIndex);
+    </script>
+
+
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+     <!-- Conteúdo da página aqui -->
+    
+     <footer>
+        <p>&copy; 2024 EE João Sarmento Pimentel. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
